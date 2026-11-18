@@ -35,4 +35,5 @@ def add_prompt(item: PromptInput):
     new_version = len(prompts) + 1
     new_prompt = {"version": new_version, "text": item.text, "status": "active"}
     prompts.append(new_prompt)
-    return new_prompt
+    return new_prompt# handler trigger
+# restart trigger

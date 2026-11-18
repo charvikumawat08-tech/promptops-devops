@@ -1,0 +1,5 @@
+---
+- name: Configure PromptOps Web Server
+  hosts: webservers
+  roles:
+    - promptops_role

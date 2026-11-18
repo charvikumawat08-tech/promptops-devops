@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: promptops-deployment
+  labels:
+    app: promptops
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: promptops
+  template:
+    metadata:
+      labels:
+        app: promptops
+    spec:
+      containers:
+        - name: promptops-container
+          image: promptops-api:v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8000
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
